@@ -243,15 +243,11 @@ function get20s(arr) {
   let modernArtists = []
 
   for(i = 0; i < arr.length; i++) {
-    if(arr[i].years.includes("19")) {
-      modernArtists.push(arr[i]);
+    if(arr[i].years.includes("19") && !arr[i].years.includes("18")) {
+      modernArtists.push(arr[i].name);
     }
   }
-  for(i = 0; i < modernArtists.length; i++) {
-    if (modernArtists[i].years.includes("18")) {
-      modernArtists.splice(i, 1);
-    }
-  }
+  return modernArtists
 }
 
 
