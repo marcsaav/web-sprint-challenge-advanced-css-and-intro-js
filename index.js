@@ -329,10 +329,18 @@ The function should console.log 50 chunks of HTML code that match the structure 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
-function getHTML(/* Code here */){
-
-    /* Code here */
-
+function getHTML(data) {
+    data.forEach(artObj => {
+      console.log(`<div id="artist">
+      <div class="image">
+          <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/starry-night-by-vincent-van-gogh-vincent-van-gogh.jpg"/>
+      </div>
+      <div class = "name">
+         <a href=${artObj.wikipedia}>${artObj.name}</a>
+      </div>
+      <div class="bio">${artObj.bio}</div>
+      </div>`)
+    });
   }
 
 
@@ -345,7 +353,12 @@ function randomize(arr){
     start = Math.floor(Math.random() * arr.length);
     randomArr.push(arr.splice(start, 1)[0])
   } return randomArr
-  }
+}
 
 
  /* STRETCH 3: Use advanced array methods (.map, .reduce, .filer) to refactor your MVP code (create an array of all artists born in the 1900s with .filter, for example) */
+
+
+ function get20s(arr) {
+  return arr.filter(r => r.years.includes("19") && !r.years.includes("18"));
+ }
